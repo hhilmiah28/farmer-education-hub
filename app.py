@@ -194,7 +194,52 @@ elif menu == "🧪 Organic Fertilizer":
     st.write("---")
     st.markdown("### 🔬 Mineral Content of Banana Peels")
     st.image("table.png", use_container_width=True)
+    st.write("---")
     
+
+    st.markdown("## 🧮 Fermentation Calculator (Kalkulator Fermentasi Pupuk Cair)")
+
+    material_weight = st.number_input(
+        "Organic material weight (kg)",
+        min_value=1.0,
+        value=10.0
+    )
+
+    water_ratio = st.slider(
+        "Water ratio (L per kg material)",
+        min_value=0.5,
+        max_value=5.0,
+        value=2.0,
+        step=0.1
+    )
+
+    temperature = st.slider(
+        "Fermentation temperature (°C)",
+        min_value=15,
+        max_value=50,
+        value=30
+    )
+
+    # ===== CALCULATION =====
+    water_needed = material_weight * water_ratio
+    molasses_needed = water_needed * 0.05
+
+    if temperature < 20:
+        fermentation_days = 21
+    elif temperature <= 30:
+        fermentation_days = 14
+    else:
+        fermentation_days = 7
+
+    # ===== OUTPUT =====
+    st.subheader("📊 Results")
+
+    st.success(f"💧 Water needed: {water_needed:.1f} L")
+    st.success(f"🍯 Molasses needed: {molasses_needed:.1f} L")
+    st.success(f"⏳ Fermentation time: {fermentation_days} days")
+
+    # optional progress
+    st.progress(int(min((temperature - 15) / 30 * 100, 100)))
 
 # ========== MODUL 3: GULMA =========
 elif menu == "🌾 Weed Utilization in Rice Fields":
