@@ -212,8 +212,7 @@ elif menu == "🌾 Weed Utilization in Rice Fields":
     st.write("---")
     st.markdown("### Utilization of Weeds in Rice Fields")
     
-    st.image("decomposition.png", caption="Weed Decomposition Process", use_container_width=True)
-
+    st.image("decomposition.png", use_container_width=True)
 # ========== MODUL 4: KUIS ==========
 elif menu == "📝 Quiz":
     st.markdown(f"<h1 style='color:#1B5E20;'>📝 {t['quiz_title']}</h1>", unsafe_allow_html=True)
